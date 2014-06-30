@@ -21,17 +21,67 @@ Or install it yourself as:
 환경변수에 필요한 값은 선언이 되어 있어야함
 
 ```shell
-rake dockera:build[seapy/railsapp,v0.0.1]
-rake dockera:push[seapy/railsapp,v0.0.1]
+bin/rake dockera:build
+bin/rake dockera:push
 
-rake dockera:con:start[seapy/railsapp,v0.0.1]
-rake dockera:con:stop[seapy/railsapp,v0.0.1]
-rake dockera:con:rm[seapy/railsapp,v0.0.1]
-rake dockera:con:console[seapy/railsapp,v0.0.1]
+bin/rake dockera:con:start
+bin/rake dockera:con:stop
+bin/rake dockera:con:rm
+bin/rake dockera:con:bash
 
-rake dockera:db:create[seapy/railsapp,v0.0.1]
-rake dockera:db:setup[seapy/railsapp,v0.0.1]
-rake dockera:db:migrate[seapy/railsapp,v0.0.1]
+bin/rake dockera:db:create
+bin/rake dockera:db:setup
+bin/rake dockera:db:migrate
+```
+
+## Configuration
+
+```ruby
+DockerAlias.configure do |config|
+  config.repo = 'seapy/docker_alias'
+  config.tag = 'latest'
+  config.cache_buster_key = 'CACHE_BUSTER_'
+  config.options = [
+    '--link mysql:mysql',
+    '--link redis:redis',
+    '--rm'
+  ]
+  config.enviroments = {
+    'SECRET_KEY_BASE' => ENV['RORLA_SECRET_KEY_BASE'],
+    'TEST_KEY' => 'yo'
+  }
+  config.port_maps = [
+    '80:80',
+    '3306:3306',
+  ]
+end
+```
+
+### `cache_buster_key`
+
+if provided `cache_buster_key`, DockerAlias replace string from your `Dockerfile`.
+
+if your Dockerfile like this 
+
+```shell
+RUN echo "CACHE_BUSTER_0"
+```
+
+and cache_buster_key is set `CACHE_BUSTER_`
+`Dockerfile` changed like this, when you docker build
+
+```shell
+RUN echo "CACHE_BUSTER_1404132922"
+```
+
+`1404132922` is build timestamp.
+
+you must append number after `cache_buster_key`
+
+```shell
+RUN echo "CACHE_BUSTER_23"  # it's ok
+RUN echo "CACHE_BUSTER_jasd"  # not ok
+RUN echo "CACHE_BUSTER_"  # not ok
 ```
 
 ## Contributing
