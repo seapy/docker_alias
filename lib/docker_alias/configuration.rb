@@ -4,7 +4,7 @@ module DockerAlias
     attr_writer :options, :enviroments, :port_maps
 
     def initialize
-      @repo = 'seapy/docker_alias'
+      @repo = ''
       @tag = 'latest'
       @cache_buster_key = 'CACHE_BUSTER_'
       @options = []
