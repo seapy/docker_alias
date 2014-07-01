@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["iamseapy@gmail.com"]
   spec.summary       = %q{도커 명령어를 출력}
   spec.description   = %q{도커 명령어에서 자주 사용하는 옵션을 포함하고 환경변수등도 포함해서 붙여넣기 하면 사용할 수 있도록 한다. docker-api 사용하는것들보다는 직접 명령어를 통해서 도커를 실행해본다는 의도.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/seapy/docker_alias"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
