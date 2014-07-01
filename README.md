@@ -18,8 +18,6 @@ Or install it yourself as:
 
 ## Usage
 
-환경변수에 필요한 값은 선언이 되어 있어야함
-
 ```shell
 bin/rake dockera:build
 bin/rake dockera:push
@@ -37,6 +35,7 @@ bin/rake dockera:db:migrate
 ## Configuration
 
 ```ruby
+# config/initializers/docker_alias.rb
 DockerAlias.configure do |config|
   config.repo = 'seapy/docker_alias'
   config.tag = 'latest'
