@@ -1,8 +1,7 @@
 module DockerAlias
   class Container
     def self.start
-      build_name = DockerAlias.build_name
-      puts "docker run --name #{build_name} #{DockerAlias.options} -d #{build_name}"
+      puts "docker run --name #{DockerAlias.run_name} #{DockerAlias.options} -d #{DockerAlias.build_name}"
     end
 
     def self.stop

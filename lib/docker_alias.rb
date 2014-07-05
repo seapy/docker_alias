@@ -44,6 +44,10 @@ module DockerAlias
     DockerAlias.configuration.build_name
   end
 
+  def self.run_name
+    DockerAlias.configuration.build_name.tr('/:', '_')
+  end
+
   def self.options
     options = []
     options << DockerAlias.configuration.options
