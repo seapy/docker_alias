@@ -46,5 +46,12 @@ namespace :dockera do
     task :migrate do
       DockerAlias::Db.migrate
     end
+
+    namespace :schema do
+      desc "도커 DB 스키마 로드"
+      task :load do
+        DockerAlias::Db.schema_load
+      end
+    end
   end
 end

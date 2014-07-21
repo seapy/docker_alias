@@ -11,5 +11,9 @@ module DockerAlias
     def self.migrate
       puts "#{DockerAlias.console} bundle exec rake db:migrate"
     end
+
+    def self.schema_load
+      puts "#{DockerAlias.console} bundle exec rake db:schema:load"
+    end
   end
 end
