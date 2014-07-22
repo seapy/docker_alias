@@ -7,9 +7,9 @@ module DockerAlias
     end
 
     def self.stop
-      puts ">>> docker stoputs #{DockerAlias.run_name}"
+      puts ">>> docker stop #{DockerAlias.run_name}"
       puts "=> "
-      system "docker stoputs #{DockerAlias.run_name}"
+      system "docker stop #{DockerAlias.run_name}"
     end
 
     def self.rm
