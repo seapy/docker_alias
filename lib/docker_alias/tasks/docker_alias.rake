@@ -37,14 +37,26 @@ namespace :dockera do
       DockerAlias::Db.create
     end
 
-    desc "도커 DB 초기 설정. 마이그레이션 및 시드 데이터 추가"
+    desc "도커 DB 초기 설정: 마이그레이션 및 시드 데이터 추가"
     task :setup do
       DockerAlias::Db.setup
+    end
+
+    desc "도커 DB 재설정: DB drop 및 setup"
+    task :reset do
+      DockerAlias::Db.reset
     end
 
     desc "도커 DB 마이그레이트"
     task :migrate do
       DockerAlias::Db.migrate
+    end
+
+    namespace :schema do
+      desc "도커 DB 스키마 로드"
+      task :load do
+        DockerAlias::Db.schema_load
+      end
     end
   end
 end
