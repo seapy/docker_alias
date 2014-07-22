@@ -13,7 +13,7 @@ module DockerAlias
     end
 
     def self.bash
-      puts "#{DockerAlias.console} /bin/bash"
+      exec "#{DockerAlias.console} /bin/bash"
     end
   end
 end
