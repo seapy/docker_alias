@@ -102,6 +102,6 @@ RUN echo "CACHE_BUSTER_"  # not ok
 
 ## Change logs
 
-* added "_exec" tasks to dockera:db & dockera:con, respectively by lucius, July 22, 2014
+* made dockera:db & dockera:con tasks be run, by lucius, July 22, 2014
 * added dockera:db:reset by lucius, July 22, 2014
 * added dockera:db:schema:load by lucius, July 21, 2014
