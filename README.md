@@ -23,14 +23,22 @@ bin/rake dockera:build
 bin/rake dockera:push
 
 bin/rake dockera:con:start
+bin/rake dockera:con:start_exec
 bin/rake dockera:con:stop
+bin/rake dockera:con:stop_exec
 bin/rake dockera:con:rm
+bin/rake dockera:con:rm_exec
 bin/rake dockera:con:bash
+bin/rake dockera:con:bash_exec
 
 bin/rake dockera:db:create
+bin/rake dockera:db:create_exec
 bin/rake dockera:db:setup
+bin/rake dockera:db:setup_exec
 bin/rake dockera:db:migrate
+bin/rake dockera:db:migrate_exec
 bin/rake dockera:db:schema:load
+bin/rake dockera:db:schema:load_exec
 ```
 
 ## Configuration
@@ -94,4 +102,6 @@ RUN echo "CACHE_BUSTER_"  # not ok
 
 ## Change logs
 
+* added "_exec" tasks to dockera:db & dockera:con, respectively by lucius, July 22, 2014
+* added dockera:db:reset by lucius, July 22, 2014
 * added dockera:db:schema:load by lucius, July 21, 2014
