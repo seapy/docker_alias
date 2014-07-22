@@ -6,13 +6,13 @@ module DockerAlias
     end
 
     def self.stop
-      puts "docker stop #{DockerAlias.build_name}"
-      system "docker stop #{DockerAlias.build_name}"
+      puts "docker stop #{DockerAlias.run_name}"
+      system "docker stop #{DockerAlias.run_name}"
     end
 
     def self.rm
-      puts "docker rm #{DockerAlias.build_name}"
-      system "docker rm #{DockerAlias.build_name}"
+      puts "docker rm #{DockerAlias.run_name}"
+      system "docker rm #{DockerAlias.run_name}"
     end
 
     def self.bash
